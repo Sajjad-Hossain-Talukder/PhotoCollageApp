@@ -14,14 +14,13 @@
 		B6A3E3A92B6646B5007FFA02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A3E3A72B6646B5007FFA02 /* Main.storyboard */; };
 		B6A3E3AB2B6646B9007FFA02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A3E3AA2B6646B9007FFA02 /* Assets.xcassets */; };
 		B6A3E3AE2B6646B9007FFA02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A3E3AC2B6646B9007FFA02 /* LaunchScreen.storyboard */; };
-		B6A3E3B62B665B58007FFA02 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3E3B52B665B58007FFA02 /* PhotoCell.swift */; };
 		B6A3E3B92B6663C4007FFA02 /* ProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3E3B72B6663C4007FFA02 /* ProjectViewCell.swift */; };
 		B6A3E3BA2B6663C4007FFA02 /* ProjectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6A3E3B82B6663C4007FFA02 /* ProjectViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B63232CF2B66811500C4A15F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		B6A3E39E2B6646B5007FFA02 /* imagePickerCollege.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imagePickerCollege.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6A3E39E2B6646B5007FFA02 /* CollagePhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollagePhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A3E3A12B6646B5007FFA02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6A3E3A32B6646B5007FFA02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B6A3E3A52B6646B5007FFA02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +28,6 @@
 		B6A3E3AA2B6646B9007FFA02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6A3E3AD2B6646B9007FFA02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6A3E3AF2B6646B9007FFA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6A3E3B52B665B58007FFA02 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B6A3E3B72B6663C4007FFA02 /* ProjectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewCell.swift; sourceTree = "<group>"; };
 		B6A3E3B82B6663C4007FFA02 /* ProjectViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +43,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B63232D12B668E8D00C4A15F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6A3E3A52B6646B5007FFA02 /* ViewController.swift */,
+				B6A3E3B72B6663C4007FFA02 /* ProjectViewCell.swift */,
+				B63232CF2B66811500C4A15F /* ResultViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B63232D22B668E9B00C4A15F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6A3E3A72B6646B5007FFA02 /* Main.storyboard */,
+				B6A3E3B82B6663C4007FFA02 /* ProjectViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B6A3E3952B6646B5007FFA02 = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +73,7 @@
 		B6A3E39F2B6646B5007FFA02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6A3E39E2B6646B5007FFA02 /* imagePickerCollege.app */,
+				B6A3E39E2B6646B5007FFA02 /* CollagePhoto.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,15 +83,11 @@
 			children = (
 				B6A3E3A12B6646B5007FFA02 /* AppDelegate.swift */,
 				B6A3E3A32B6646B5007FFA02 /* SceneDelegate.swift */,
-				B6A3E3A52B6646B5007FFA02 /* ViewController.swift */,
-				B6A3E3A72B6646B5007FFA02 /* Main.storyboard */,
+				B63232D12B668E8D00C4A15F /* Controllers */,
+				B63232D22B668E9B00C4A15F /* Views */,
 				B6A3E3AA2B6646B9007FFA02 /* Assets.xcassets */,
 				B6A3E3AC2B6646B9007FFA02 /* LaunchScreen.storyboard */,
 				B6A3E3AF2B6646B9007FFA02 /* Info.plist */,
-				B6A3E3B52B665B58007FFA02 /* PhotoCell.swift */,
-				B6A3E3B72B6663C4007FFA02 /* ProjectViewCell.swift */,
-				B6A3E3B82B6663C4007FFA02 /* ProjectViewCell.xib */,
-				B63232CF2B66811500C4A15F /* ResultViewController.swift */,
 			);
 			path = imagePickerCollege;
 			sourceTree = "<group>";
@@ -82,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B6A3E39D2B6646B5007FFA02 /* imagePickerCollege */ = {
+		B6A3E39D2B6646B5007FFA02 /* CollagePhoto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6A3E3B22B6646B9007FFA02 /* Build configuration list for PBXNativeTarget "imagePickerCollege" */;
+			buildConfigurationList = B6A3E3B22B6646B9007FFA02 /* Build configuration list for PBXNativeTarget "CollagePhoto" */;
 			buildPhases = (
 				B6A3E39A2B6646B5007FFA02 /* Sources */,
 				B6A3E39B2B6646B5007FFA02 /* Frameworks */,
@@ -94,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = imagePickerCollege;
+			name = CollagePhoto;
 			productName = imagePickerCollege;
-			productReference = B6A3E39E2B6646B5007FFA02 /* imagePickerCollege.app */;
+			productReference = B6A3E39E2B6646B5007FFA02 /* CollagePhoto.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B6A3E3992B6646B5007FFA02 /* Build configuration list for PBXProject "imagePickerCollege" */;
+			buildConfigurationList = B6A3E3992B6646B5007FFA02 /* Build configuration list for PBXProject "CollagePhoto" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6A3E39D2B6646B5007FFA02 /* imagePickerCollege */,
+				B6A3E39D2B6646B5007FFA02 /* CollagePhoto */,
 			);
 		};
 /* End PBXProject section */
@@ -152,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6A3E3B92B6663C4007FFA02 /* ProjectViewCell.swift in Sources */,
-				B6A3E3B62B665B58007FFA02 /* PhotoCell.swift in Sources */,
 				B6A3E3A62B6646B5007FFA02 /* ViewController.swift in Sources */,
 				B6A3E3A22B6646B5007FFA02 /* AppDelegate.swift in Sources */,
 				B6A3E3A42B6646B5007FFA02 /* SceneDelegate.swift in Sources */,
@@ -362,7 +374,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B6A3E3992B6646B5007FFA02 /* Build configuration list for PBXProject "imagePickerCollege" */ = {
+		B6A3E3992B6646B5007FFA02 /* Build configuration list for PBXProject "CollagePhoto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6A3E3B02B6646B9007FFA02 /* Debug */,
@@ -371,7 +383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6A3E3B22B6646B9007FFA02 /* Build configuration list for PBXNativeTarget "imagePickerCollege" */ = {
+		B6A3E3B22B6646B9007FFA02 /* Build configuration list for PBXNativeTarget "CollagePhoto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6A3E3B32B6646B9007FFA02 /* Debug */,
