@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7AQ-rJ-oyD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Collage Photos-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="imagePickerCollege" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BMM-jt-SNV">
+                                <rect key="frame" x="0.0" y="92" width="414" height="640"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="640" id="vEL-hV-hxx"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2ZN-xl-Wa3">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="T2T-iO-cLO"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CaS-by-Bvx"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cwh-K5-JLc" userLabel="collegeButton">
+                                <rect key="frame" x="0.0" y="732" width="414" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXI-vd-0ZF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Collage">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="collegeImageTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Qb-TR-G6g"/>
+                                            <segue destination="1wv-Gi-Klf" kind="presentation" identifier="go" modalTransitionStyle="coverVertical" id="oi0-XU-9mk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.079032726590000005" green="0.20935979490000001" blue="0.22497808929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="aXI-vd-0ZF" firstAttribute="top" secondItem="Cwh-K5-JLc" secondAttribute="top" id="FF1-SZ-fGD"/>
+                                    <constraint firstItem="aXI-vd-0ZF" firstAttribute="leading" secondItem="Cwh-K5-JLc" secondAttribute="leading" id="R5y-Bb-QUU"/>
+                                    <constraint firstAttribute="bottom" secondItem="aXI-vd-0ZF" secondAttribute="bottom" id="qbd-DD-OJy"/>
+                                    <constraint firstAttribute="trailing" secondItem="aXI-vd-0ZF" secondAttribute="trailing" id="sTx-Qr-aBr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cwh-K5-JLc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="03l-bl-qZa"/>
+                            <constraint firstItem="Cwh-K5-JLc" firstAttribute="top" secondItem="BMM-jt-SNV" secondAttribute="bottom" id="4QK-ff-wo6"/>
+                            <constraint firstItem="Cwh-K5-JLc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6fO-OE-ZfH"/>
+                            <constraint firstItem="Cwh-K5-JLc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="KsB-Mm-N3v"/>
+                            <constraint firstItem="BMM-jt-SNV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NzG-eH-Zol"/>
+                            <constraint firstItem="BMM-jt-SNV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pEn-g3-Zzo"/>
+                            <constraint firstItem="BMM-jt-SNV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rPX-eG-yMN"/>
+                            <constraint firstItem="Cwh-K5-JLc" firstAttribute="top" secondItem="BMM-jt-SNV" secondAttribute="bottom" id="whs-uW-gyy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Collage Photos" id="53s-jZ-6iJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sOa-v2-BUl">
+                            <connections>
+                                <action selector="addImageTapped:" destination="BYZ-38-t0r" id="p7i-kI-A6A"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoCollection" destination="BMM-jt-SNV" id="T50-mq-YUh"/>
+                        <outlet property="photoCollectionFlow" destination="2ZN-xl-Wa3" id="LIp-Ic-d3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218.840579710145" y="-104.46428571428571"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="jLr-Il-cPd">
+            <objects>
+                <viewController id="1wv-Gi-Klf" customClass="ResultViewController" customModule="imagePickerCollege" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gbL-eZ-dPM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kp2-2k-18y">
+                                <rect key="frame" x="0.0" y="267.5" width="414" height="349.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9U-bT-nEV">
+                                <rect key="frame" x="152" y="737" width="112" height="35"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save Image"/>
+                                <connections>
+                                    <action selector="saveImageTapped:" destination="1wv-Gi-Klf" eventType="touchUpInside" id="dpb-dD-7FQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RcP-gK-yny"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kp2-2k-18y" firstAttribute="top" secondItem="RcP-gK-yny" secondAttribute="top" constant="270" id="93t-qE-6kf"/>
+                            <constraint firstItem="Kp2-2k-18y" firstAttribute="trailing" secondItem="RcP-gK-yny" secondAttribute="trailing" id="JGJ-OF-QEt"/>
+                            <constraint firstItem="y9U-bT-nEV" firstAttribute="top" secondItem="Kp2-2k-18y" secondAttribute="bottom" constant="120" id="Kzu-2r-qFB"/>
+                            <constraint firstItem="y9U-bT-nEV" firstAttribute="leading" secondItem="RcP-gK-yny" secondAttribute="leading" constant="152" id="Wao-9r-W1K"/>
+                            <constraint firstItem="RcP-gK-yny" firstAttribute="bottom" secondItem="y9U-bT-nEV" secondAttribute="bottom" constant="114" id="ZOr-SM-FFL"/>
+                            <constraint firstItem="Kp2-2k-18y" firstAttribute="leading" secondItem="RcP-gK-yny" secondAttribute="leading" id="cgw-HF-Y0H"/>
+                            <constraint firstItem="RcP-gK-yny" firstAttribute="trailing" secondItem="y9U-bT-nEV" secondAttribute="trailing" constant="150" id="f3l-7D-VdO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Kp2-2k-18y" id="sCJ-zL-AlB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tFB-Lm-gEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2023.1884057971015" y="-104.46428571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BHt-Fr-9Ei">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7AQ-rJ-oyD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Agi-rT-7lA">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.11451582489999999" green="0.94178990439999999" blue="0.7151835983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.11451582489999999" green="0.94178990439999999" blue="0.7151835983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Vek-p8-sNv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDE-3U-9Sq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="-104"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
