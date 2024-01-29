@@ -9,9 +9,10 @@ import UIKit
 
 class ProjectViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }

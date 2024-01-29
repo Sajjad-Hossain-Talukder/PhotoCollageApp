@@ -11,10 +11,18 @@ import PhotosUI
 
 class ViewController: UIViewController{
     
+    let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    var combo : UIImage! = nil
     var imageArray = [UIImage]()
+    
+    @IBOutlet weak var collageNavigation: NSLayoutConstraint!
     @IBOutlet weak var photoCollection: UICollectionView!
     @IBOutlet weak var photoCollectionFlow: UICollectionViewFlowLayout!
-    var combo : UIImage! = nil
+
+    @IBOutlet weak var verticalButton: UIButton!
+    
+    @IBOutlet weak var horizontalButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +30,34 @@ class ViewController: UIViewController{
         
         photoCollection.register(UINib(nibName: "ProjectViewCell", bundle: nil), forCellWithReuseIdentifier: "ProjectViewCell")
         photoCollection.collectionViewLayout = photoCollectionFlow
-        photoCollectionFlow.minimumLineSpacing = 0
-        photoCollectionFlow.minimumInteritemSpacing = 0 
-      
+        photoCollectionFlow.minimumLineSpacing = 1
+        photoCollectionFlow.minimumInteritemSpacing = 1
+        
+        collageNavigation.constant = 0
+        
+    }
+    
+    //MARK: - Haptic FeedBack
+    
+    func addHaptic(){
+        impactFeedbackGenerator.prepare()
+        impactFeedbackGenerator.impactOccurred()
+    }
+    
+    //MARK: - TEST PHASE
+    
+    @IBAction func touchDown(_ sender: UIButton) {
+        addHaptic()
+        sender.adjustsImageWhenHighlighted = false
+        UIView.animate(withDuration: 0.2 , animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        })
+    }
+    
+    @IBAction func touchUP(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.2 , animations: {
+            sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,8 +65,22 @@ class ViewController: UIViewController{
             if let destVC = segue.destination as? ResultViewController {
                 destVC.receivedData = combo
             }
+        } else if segue.identifier == "gogo" {
+            if let destVC = segue.destination as? VerticalResultViewController {
+                destVC.receivedData = combo
+            }
         }
     }
+    
+    func addCollageButton(){
+        let newHeight = (imageArray.count <= 1) ?  0 : view.layer.frame.height * 99 / 896
+        UIView.animate(withDuration: 0.7 ) {
+            self.collageNavigation.constant = newHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    
 
     @IBAction func addImageTapped(_ sender: UIBarButtonItem) {
         var config = PHPickerConfiguration()
@@ -47,10 +94,21 @@ class ViewController: UIViewController{
         
     }
     
+    
+
+    
     @IBAction func collegeImageTapped(_ sender: UIButton) {
-        self.combo = self.combineImages(self.imageArray)
+        if sender == horizontalButton {
+            combo = combineImagesHorizontally(imageArray)
+            performSegue(withIdentifier: "go", sender: self)
+        } else {
+            combo = combineImagesVertically(imageArray)
+            performSegue(withIdentifier: "gogo", sender: self)
+        }
     }
-    func combineImages(_ images: [UIImage]) -> UIImage? {
+    
+    
+    func combineImagesHorizontally(_ images: [UIImage]) -> UIImage? {
        
         var totalWidth: CGFloat = 0
         var maxHeight: CGFloat = 0
@@ -83,6 +141,39 @@ class ViewController: UIViewController{
     }
 
     
+    
+    func combineImagesVertically(_ images: [UIImage]) -> UIImage? {
+       
+        var maxWidth: CGFloat = 0
+        var totalHeight: CGFloat = 0
+        
+        for image in images {
+            totalHeight += image.size.height
+            if image.size.width > maxWidth {
+                maxWidth = image.size.width
+            }
+        }
+        
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: maxWidth, height: totalHeight), false, 0.0)
+        
+        var currentY: CGFloat = 0
+        
+
+        for image in images {
+            let rect = CGRect(x: 0, y: currentY, width: image.size.width, height: image.size.height)
+            image.draw(in: rect)
+            currentY += image.size.height
+        }
+        
+
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return combinedImage
+    }
+    
 }
 
 
@@ -96,8 +187,9 @@ extension ViewController : PHPickerViewControllerDelegate {
                     self.imageArray.append(image)
                 }
                 DispatchQueue.main.async {
+                    self.addCollageButton()
                     self.photoCollection.reloadData()
-                   
+                    
                 }
             })
         }
@@ -119,7 +211,17 @@ extension ViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  "ProjectViewCell", for: indexPath) as! ProjectViewCell
         
         cell.imageView.image = imageArray[indexPath.row]
+        cell.cancelButton.tag = indexPath.row
+        cell.cancelButton.addTarget(self, action: #selector(cancelItem), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func cancelItem(sender: UIButton ) {
+        imageArray.remove(at: sender.tag)
+        addCollageButton()
+        photoCollection.reloadData()
+        
     }
 }
 
@@ -127,15 +229,17 @@ extension ViewController : UICollectionViewDataSource {
 extension ViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("sajjad- ")
-        print(imageArray[indexPath.row].size)
+        //print("sajjad- ")
+        //print(imageArray[indexPath.row].size)
         
-        var h = imageArray[indexPath.row].size.height / 8
-        var w = imageArray[indexPath.row].size.width / 8
+        let h = imageArray[indexPath.row].size.height / 8 - 1
+        let w = imageArray[indexPath.row].size.width / 8 - 1
         
         
         return CGSize(width: w, height: h)
     }
     
 }
+
+
 

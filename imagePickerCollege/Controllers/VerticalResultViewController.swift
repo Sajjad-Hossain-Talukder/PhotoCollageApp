@@ -1,24 +1,26 @@
 //
-//  ResultViewController.swift
-//  imagePickerCollege
+//  VerticalResultViewController.swift
+//  CollagePhoto
 //
-//  Created by Xotech on 28/01/2024.
+//  Created by Xotech on 29/01/2024.
 //
 
 import UIKit
 
-class ResultViewController: UIViewController {
-
+class VerticalResultViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var receivedData : UIImage!
-   
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        
         if let res = receivedData {
             imageView.image = res
         }
-
+       
     }
+    
+    
     
     @IBAction func saveImageTapped(_ sender: UIButton) {
         saveImageToPhotoLibrary( imageView.image!)
@@ -35,6 +37,6 @@ class ResultViewController: UIViewController {
             print("Image saved successfully to photo library")
         }
     }
-
     
+
 }
